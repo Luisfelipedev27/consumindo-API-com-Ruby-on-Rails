@@ -1,0 +1,45 @@
+<style> 
+table, td {
+  border: 1px solid;
+}
+
+td:hover {background-color: yellow;}
+
+.tabela {
+    margin-left:340px;
+}
+h1 {
+    margin-left:600px;
+}
+
+</style>
+
+
+<html>
+
+<h1> Confirmados </h1>
+<div class="tabela">
+<table>
+    <thead>
+        <td>País</td>
+        <td>Cidade</td>
+        <td>Confirmados</td>
+        <td>Útima Atualização</td>
+    </thead>
+    
+    <tbody>
+    <%@confirmed.each do |confirmed|%>
+        <tr>
+            <td> <%= confirmed['countryRegion'] %> </td>
+            <td> <%= confirmed['provinceState'] %> </td>
+            <td> <%= confirmed['confirmed'] %> </td>
+            <td> <%= Time.at(confirmed['lastUpdate'].to_i/1000).strftime('%d/%M/%Y %H:%M:%S')%></td>  <!--Método que organiza as datas e horários-->
+        </tr>
+
+    <% end %>
+    
+    </tbody>
+</table>
+</div>
+
+<html>

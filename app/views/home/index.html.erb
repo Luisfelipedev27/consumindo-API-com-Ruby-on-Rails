@@ -1,0 +1,78 @@
+
+<html style='background-image: url(<%= asset_path 'fundo_ruby.png' %>)'>
+
+<div style='align-items: center; margin-top: 250px; margin-left: 420px'>
+
+<style>
+
+@keyframes moveBanner {
+    0%{
+        transform: translateY(30rem) rotateY(-20deg);
+    }
+    100%{
+        transform: translateY(0) rotateY(0);
+    }
+}
+
+.link {
+    text-decoration: none;
+}
+
+.luis {
+    text-decoration: none
+}
+
+h1 {
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+    font-size:3rem;
+    animation: moveBanner 2.5s;
+}
+
+.p1 {
+    color:white;
+    font-size:20px;
+    animation: moveBanner 3.1s;
+}
+
+.p2 {
+    color:white;
+    font-size:20px;
+    animation: moveBanner 3.5s;
+}
+
+button {
+    animation: moveBanner 3.8s;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius:8px;
+    text-decoration: none;
+    height:30px;
+    transition: 0.4s;
+
+}
+   
+button:hover {
+    border: none;
+    background-color: white;
+}
+
+</style>
+
+<h1> Dados Atualizados do Covid  </h1>
+
+<p class="p1"> <strong>Confirmados:</strong> <%= @summary['confirmed']['value'] %>  </p>
+<p class="p2"> <strong>Mortos:</strong> <%= @summary['deaths']['value'] %>  </p>
+
+<div>
+<button class="btn1"> <%= link_to "TABELA DE CONFIRMADOS", confirmados_path, class:"luis"%> </button>
+<button class="btn2"> <%= link_to "TABELA DE MORTOS", mortos_path, class:"link"%> </button>
+</div>
+ 
+ </div>
+</html>
+
